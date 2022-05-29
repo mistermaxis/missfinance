@@ -9,6 +9,5 @@ Rails.application.routes.draw do
   get 'bill_groups/new'
   get 'bill_group/index'
   get 'bill_group/new'
-
   root 'bill_groups#index'
 end
