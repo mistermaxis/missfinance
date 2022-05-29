@@ -1,0 +1,2 @@
+module BillGroupsHelper
+end
