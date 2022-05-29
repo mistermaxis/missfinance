@@ -10,20 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_29_220912) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_29_232055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "bill_groups", force: :cascade do |t|
-    t.text "name"
-    t.text "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "bills", force: :cascade do |t|
     t.text "name"
     t.float "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "author_id", null: false
+    t.index ["author_id"], name: "index_bills_on_author_id"
+  end
+
+  create_table "cat_bills", force: :cascade do |t|
+    t.bigint "cat_id", null: false
+    t.bigint "bill_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_cat_bills_on_bill_id"
+    t.index ["cat_id"], name: "index_cat_bills_on_cat_id"
+  end
+
+  create_table "cats", force: :cascade do |t|
+    t.text "name"
+    t.text "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,4 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_29_220912) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bills", "users", column: "author_id"
+  add_foreign_key "cat_bills", "bills"
+  add_foreign_key "cat_bills", "cats"
 end
