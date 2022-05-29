@@ -1,6 +1,14 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  get 'bills/index'
+  get 'bills/new'
+  get 'bill_groups/index'
+  get 'bill_groups/new'
+  get 'bill_group/index'
+  get 'bill_group/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root 'bill_groups#index'
 end
