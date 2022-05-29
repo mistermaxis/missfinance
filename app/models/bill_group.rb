@@ -1,0 +1,2 @@
+class BillGroup < ApplicationRecord
+end
