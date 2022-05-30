@@ -1,2 +1,6 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/cats/index.html.erb</p>
+<h1>Categories</h1>
+<% if !@categories.empty? %>
+  <% @categories.each do |category| %>
+    <div><%= link_to category.name, category %></div>
+  <% end %>
+<% end %>
