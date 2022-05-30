@@ -1,0 +1,14 @@
+<div>
+  <p>Category:</p>
+  <div class="category-header">
+    <%= image_tag(url_for(@category.icon), class: "cat-icon") %>
+    <span><%= @category.name %></span>
+  </div>
+  <div>
+    <% if @category.bills.present? %>
+      <% @category.bills.each do |bill| %>
+        <%= link_to bill.name, bill_path(bill) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
