@@ -1,2 +1,8 @@
-<h1>Bills#new</h1>
-<p>Find me in app/views/bills/new.html.erb</p>
+<h1>Add a New Payment</h1>
+  <%= form_with(model: @bill) do |f| %>
+    <%= f.label :name, 'Payment Name' %>
+    <%= f.text_field :name, autofocus: true, placeholder: 'Payment Name' %>
+    <%= f.label :amount, 'Amount' %>
+    <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0 %>
+    <%= f.submit 'Add Payment' %>
+  <% end %>
