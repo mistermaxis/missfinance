@@ -1,4 +1,4 @@
-class BillGroupsController < ApplicationController
+class CatsController < ApplicationController
   def index; end
 
   def new; end
