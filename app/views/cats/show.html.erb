@@ -8,7 +8,7 @@
   <div>
     <% if @category.bills.present? %>
       <% @category.bills.order("created_at DESC").each do |bill| %>
-        <p><%= bill.name %></p>
+        <p><%= bill.name %>: $<%= bill.amount %></p>
       <% end %>
     <% end %>
   </div>
