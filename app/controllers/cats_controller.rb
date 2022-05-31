@@ -7,6 +7,10 @@ class CatsController < ApplicationController
 
   def show
     @category = Cat.find(params[:id])
+    @sums = @category.bills.map do |bill|
+      bill.amount
+    end
+    @total_amount = @sums.sum
   end
 
   def new
@@ -15,6 +19,7 @@ class CatsController < ApplicationController
 
   def create
     @category = Cat.new(cat_params)
+    @category.author = current_user
 
     if @category.save
       redirect_to cat_path(@category)
