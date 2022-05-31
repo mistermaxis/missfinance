@@ -1,8 +1,10 @@
-<h1>Categories</h1>
-<% if !@categories.empty? %>
-  <% @categories.includes(:bills).each do |category| %>
-    <div><%= image_tag(url_for(category.icon), class: "cat-icon") %><%= link_to category.name, category %>
-    <span><%= category.bills.map { |b| b.amount }.sum %></span></div>
+<div>
+  <h1>Categories</h1>
+  <% if !@categories.empty? %>
+    <% @categories.includes(:bills).each do |category| %>
+      <div><%= image_tag(url_for(category.icon), class: "cat-icon") %><%= link_to category.name, category %>
+      <span><%= category.bills.map { |b| b.amount }.sum %></span></div>
+    <% end %>
   <% end %>
   <%= button_to "New Category", new_cat_path, method: :get %>
-<% end %>
+</div>
