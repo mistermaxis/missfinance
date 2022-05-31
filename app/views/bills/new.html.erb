@@ -3,6 +3,10 @@
     <%= f.label :name, 'Payment Name' %>
     <%= f.text_field :name, autofocus: true, placeholder: 'Payment Name' %>
     <%= f.label :amount, 'Amount' %>
-    <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0 %>
+    <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0, step: :any %>
+    <%= f.fields_for(@cat_bill) do |cat| %>
+      <%= cat.label 'Categories' %>
+      <%= cat.collection_select(:cat_id, @categories, :id, :name, {}, { :multiple => true }) %>
+    <% end %>
     <%= f.submit 'Add Payment' %>
   <% end %>
