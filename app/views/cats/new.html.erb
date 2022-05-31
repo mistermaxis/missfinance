@@ -1,3 +1,5 @@
+<div>
+  <h2>Add a new Category</h2>
 <%= form_with(model: @cat) do |f| %>
   <%= f.label "Name" %>
   <%= f.text_field :name %>
@@ -5,3 +7,4 @@
   <%= f.file_field :icon %>
   <%= f.submit 'Add a new category' %>
 <% end %>
+</div>
