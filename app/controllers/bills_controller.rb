@@ -17,9 +17,9 @@ class BillsController < ApplicationController
 
     if @bill.save
       @bill.cats << @categories
-      redirect_to cat_path(@cat_ids.first), notice: "Transaction \"#{@bill.name}\" was created successfully"
+      redirect_to notices_success_path, notice: "Transaction \"#{@bill.name}\" was created successfully"
     else
-      redirect_to cats_path, notice: "There was an error while saving transatcion \"#{@bill.name}\""
+      redirect_to notices_failure_path, notice: "There was an error while saving transaction \"#{@bill.name}\""
     end
   end
 

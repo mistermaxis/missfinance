@@ -11,17 +11,9 @@
   </head>
 
   <body>
-    <% flash.each do |type, msg| %>
-      <div>
-        <div>
-          <%= msg %>
-        </div>
-        <%= link_to 'OK', redirect_to: :back %>
-      </div>
+    <% if user_signed_in? %>
+    <%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
     <% end %>
-      <% if user_signed_in? %>
-      <%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
-      <% end %>
-    <main><%= yield %></main>
+    <main class="main-container"><%= yield %></main>
   </body>
 </html>

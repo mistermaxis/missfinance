@@ -1,0 +1,9 @@
+<div class="view-container">
+  <% flash.each do |type, msg| %>
+    <div>
+      <span class="notice-success">&#10003;</span>
+      <p><%= msg %></p>
+      <%= link_to 'OK', cats_path %>
+    </div>
+  <% end %>
+</div>
