@@ -2,10 +2,11 @@
 
 Rails.application.routes.draw do
   devise_for :users
-
-  get 'bills/index'
-  get 'bills/new'
-  get 'cats/index'
-  get 'cats/new'
-  root 'cats#index'
+  
+  get 'home/index'
+  
+  resources :cats, only: [:index, :show, :new, :create]
+  resources :bills, only: [:new, :create]
+  
+  root 'home#index'
 end

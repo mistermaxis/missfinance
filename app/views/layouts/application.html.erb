@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Missfinance</title>
+    <title>MissFinance</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <div><%= button_to 'Log Out', destroy_user_session_path, method: :delete %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

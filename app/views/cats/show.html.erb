@@ -1,0 +1,16 @@
+<div>
+  <p>Category:</p>
+  <div class="category-header">
+    <%= image_tag(url_for(@category.icon), class: "cat-icon") %>
+    <span><%= @category.name %></span>
+    <p>Total amount for this category: <%= @total_amount %></p>
+  </div>
+  <div>
+    <% if @category.bills.present? %>
+      <% @category.bills.order("created_at DESC").each do |bill| %>
+        <p><%= bill.name %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <%= button_to 'New Transaction', new_bill_path, method: :get %>
+</div>

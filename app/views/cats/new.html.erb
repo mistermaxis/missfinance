@@ -1,2 +1,7 @@
-<h1>Categoriess#new</h1>
-<p>Find me in app/views/cats/new.html.erb</p>
+<%= form_with(model: @cat) do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label "Icon" %>
+  <%= f.file_field :icon %>
+  <%= f.submit 'Add a new category' %>
+<% end %>
