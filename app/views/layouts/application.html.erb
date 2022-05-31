@@ -14,6 +14,7 @@
     <% flash.each do |type, msg| %>
       <div class="alert alert-info">
         <%= msg %>
+        <%= button_to 'OK', redirect_to: :back %>
       </div>
     <% end %>
     <% if user_signed_in? %>
