@@ -3,23 +3,32 @@ class BillsController < ApplicationController
 
   def new
     @bill = Bill.new
+    @categories = Cat.where(author: current_user)
+    @cat_bill = @bill.cat_bills.build
   end
 
   def create
-    @bill = Bill.new(bill_params)
+    @bill = Bill.new(name: bill_params[:name], amount: bill_params[:amount])
     @bill.author = current_user
-    @bill.cats.append(Cat.first)
 
-    if @bill.save
-      redirect_to bill_path(@bill)
-    else
-      redirect_to bills_path
+    @cat_ids = bill_params[:cat_bill][:cat_id].select do |id|
+      !id.empty?
     end
+    
+    @categories = Cat.where(id: @cat_ids)
+    
+    if @bill.save
+      @bill.cats << @categories
+      redirect_to cat_path(@cat_ids.first)
+    else
+      redirect_to cats_path
+    end
+
   end
 
   private
 
   def bill_params
-    params.require(:bill).permit(:name, :amount)
+    params.require(:bill).permit(:name, :amount, cat_bill: { cat_id: [] })
   end
 end
