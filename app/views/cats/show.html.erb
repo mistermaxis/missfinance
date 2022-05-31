@@ -3,11 +3,12 @@
   <div class="category-header">
     <%= image_tag(url_for(@category.icon), class: "cat-icon") %>
     <span><%= @category.name %></span>
+    <p>Total amount for this category: <%= @total_amount %></p>
   </div>
   <div>
     <% if @category.bills.present? %>
       <% @category.bills.each do |bill| %>
-        <%= link_to bill.name, bill_path(bill) %>
+        <p><%= bill.name %></p>
       <% end %>
     <% end %>
   </div>
