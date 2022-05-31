@@ -13,7 +13,7 @@ class CatsController < ApplicationController
     elsif @category.author != current_user
       redirect_to cats_path, notice: "Category with id: #{params[:id]} does not belong to this user"
     else
-      @total_amount = @category.bills.map { |bill| bill.amount }.sum
+      @total_amount = @category.bills.map(&:amount).sum
     end
   end
 
