@@ -72,7 +72,7 @@ a {
 }
 
 .content-list {
-  flex-grow: 5;
+  flex-grow: 10;
   flex-direction: column;
   row-gap: 0.5rem;
   align-items: center;
@@ -212,4 +212,15 @@ a {
 
 .shared-links {
   color: gray;
+}
+
+/*  TRANSATIONS   */
+.amount {
+  padding: 0;
+}
+
+.list-item-transaction {
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 1rem 0.5rem;
 }
