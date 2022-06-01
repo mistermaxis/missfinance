@@ -2,9 +2,9 @@
 <h1>Add a New Payment</h1>
   <%= form_with(model: @bill) do |f| %>
     <%= f.label :name, 'Payment Name' %>
-    <%= f.text_field :name, autofocus: true, placeholder: 'Payment Name' %>
+    <%= f.text_field :name, autofocus: true, placeholder: 'Payment Name', required: true %>
     <%= f.label :amount, 'Amount' %>
-    <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0, step: :any %>
+    <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0, step: :any, required: true %>
     <%= f.fields_for(@cat_bill) do |cat| %>
       <%= cat.label 'Categories' %>
       <%= cat.collection_select(:cat_id, @categories, :id, :name, {}, {}) %>
