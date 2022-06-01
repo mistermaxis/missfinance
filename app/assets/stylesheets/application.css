@@ -195,12 +195,12 @@ a {
   border: none;
 }
 
-.login-form {
+.form {
   flex-direction: column;
   row-gap: 0.5rem;
 }
 
-.login-input {
+.form-input {
   border: none;
   flex-grow: 1;
   padding: 0.5rem;
