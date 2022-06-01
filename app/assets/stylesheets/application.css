@@ -14,25 +14,25 @@
  *= require_self
  */
 
- html {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- }
- 
- body {
-   margin: 0;
-   height: 100vh;
-   overflow-y: hidden;
- }
- 
- button {
-   background: none;
-   border: none;
-   color: lightgray;
- }
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
- a {
-   text-decoration: none;
- }
+body {
+  margin: 0;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+button {
+  background: none;
+  border: none;
+  color: lightgray;
+}
+
+a {
+  text-decoration: none;
+}
 
 .flex {
   display: flex;
@@ -82,12 +82,9 @@
 .list-item {
   width: 95%;
   max-width: 100%;
-
   background-color: white;
   color: rgb(78, 78, 78, 1);
-
   padding: 0.5rem;
-
   font-weight: bold;
 }
 
@@ -105,18 +102,22 @@
 }
 
 .bottom-action {
-  background-color: #5fb523;
-
   padding: 1rem;
   flex-grow: 1;
 }
 
+.green-button {
+  background-color: #5fb523;
+}
+
+.white-text {
+  color: white;
+}
+
 .bottom-action-button {
   flex-grow: 1;
-  color: white;
   border: 1px solid white;
   cursor: pointer;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -152,5 +153,38 @@
 
 .notice-message {
   text-align: center;
-  color:#aaa
+  color: #aaa;
+}
+
+/*  Splash Screen   */
+.blue-button {
+  background-color: #3778c2;
+}
+
+.splash-screen-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-grow: 20;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-screen-bottom-action {
+  flex-direction: column;
+}
+
+.splash-screen-button > a {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.splash-screen-button {
+  flex-grow: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-button {
+  color: gray;
 }
