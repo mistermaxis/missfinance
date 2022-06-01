@@ -31,9 +31,9 @@ class CatsController < ApplicationController
     @category.author = current_user
 
     if @category.save
-      redirect_to success_path(@category), notice: "Category #{@category.name} was created successfully."
+      redirect_to success_path(@category), notice: "Category \"#{@category.name}\" was created successfully."
     else
-      redirect_to generic_failure_path, notice: "There was an error while saving category #{@category.name}"
+      redirect_to generic_failure_path, notice: "There was an error while saving category \"#{@category.name}.\""
     end
   end
 
