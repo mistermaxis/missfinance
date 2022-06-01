@@ -11,12 +11,12 @@ class BillsController < ApplicationController
     @bill = Bill.new(name: bill_params[:name], amount: bill_params[:amount])
     @bill.author = current_user
 
-    @cat_ids = bill_params[:cat_bill][:cat_id].select(&:present?)
+    @cat_id = bill_params[:cat_bill][:cat_id]
 
-    @categories = Cat.where(id: @cat_ids)
+    @category = Cat.find(@cat_id)
 
     if @bill.save
-      @bill.cats << @categories
+      @bill.cats << @category
       redirect_to notices_success_path, notice: "Transaction \"#{@bill.name}\" was created successfully"
     else
       redirect_to notices_failure_path, notice: "There was an error while saving transaction \"#{@bill.name}\""
@@ -26,6 +26,6 @@ class BillsController < ApplicationController
   private
 
   def bill_params
-    params.require(:bill).permit(:name, :amount, cat_bill: { cat_id: [] })
+    params.require(:bill).permit(:name, :amount, cat_bill: {})
   end
 end

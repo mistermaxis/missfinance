@@ -7,7 +7,7 @@
     <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0, step: :any %>
     <%= f.fields_for(@cat_bill) do |cat| %>
       <%= cat.label 'Categories' %>
-      <%= cat.collection_select(:cat_id, @categories, :id, :name, {}, { :multiple => true }) %>
+      <%= cat.collection_select(:cat_id, @categories, :id, :name, {}, {}) %>
     <% end %>
     <%= f.submit 'Add Payment' %>
   <% end %>
