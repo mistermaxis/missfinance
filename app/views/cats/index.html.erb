@@ -1,9 +1,8 @@
 <div class="view-container flex">
   <nav class="navbar">
+    <div></div>
     <span class="nav-header">CATEGORIES</span>
-    <% if user_signed_in? %>
     <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
-    <% end %>
   </nav>
   <div class="content-list flex">
   <% if !@categories.empty? %>
