@@ -1,37 +1,19 @@
 <div class="view-container flex">
-  <h2>Sign up</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <nav class="navbar login-navbar">
+    <div></div>
+    <span class="nav-header">SIGN UP</span>
+    <div>
+      <input class="login-button white-text" type="submit" name="commit" value="SIGN UP" data-disable-with="SIGN UP" form="new_user">
+    </div>
+  </nav>
+  <div class="content-list flex">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "list-item flex form" }) do |f| %>
     <%= render "devise/shared/error_messages" , resource: resource %>
-
-      <div class="field">
-        <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :email %><br />
-          <%= f.email_field :email, autocomplete: "email", required: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", required: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-      <% end %>
-
-        <%= render "devise/shared/links" %>
-
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true, placeholder: "Name", class: "form-input" %>
+    <%= f.email_field :email, autocomplete: "email", required: true, placeholder: "Email", class: "form-input" %>
+    <%= f.password_field :password, autocomplete: "new-password", required: true, placeholder: "Password: #{@minimum_password_length} characters minimum", class: "form-input" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, placeholder: "Repeat Password", class: "form-input" %>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
