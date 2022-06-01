@@ -1,10 +1,22 @@
-<div>
-  <h1>Categories</h1>
-  <% if !@categories.empty? %>
-    <% @categories.includes(:bills).each do |category| %>
-      <div><%= image_tag(url_for(category.icon), class: "cat-icon") %><%= link_to category.name, category %>
-      <span><%= category.bills.map { |b| b.amount }.sum %></span></div>
+<div class="view-container flex">
+  <nav class="navbar">
+    <span class="nav-header">CATEGORIES</span>
+    <% if user_signed_in? %>
+    <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
     <% end %>
+  </nav>
+  <% if !@categories.empty? %>
+    <div class="content-list flex">
+      <% @categories.includes(:bills).each do |category| %>
+        <div class="list-item flex">
+          <%= image_tag(url_for(category.icon), class: "cat-icon") %>
+          <div class="list-item-info flex">
+            <%= link_to category.name, category, class: "list-item-name" %>
+            <span>$<%= category.bills.map { |b| b.amount }.sum %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-  <%= button_to "New Category", new_cat_path, method: :get %>
+<%= button_to "NEW CATEGORY", new_cat_path, method: :get, class: "bottom-action-button", form_class: "bottom-action flex" %>
 </div>
