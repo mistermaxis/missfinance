@@ -5,18 +5,18 @@
     <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
     <% end %>
   </nav>
+  <div class="content-list flex">
   <% if !@categories.empty? %>
-    <div class="content-list flex">
-      <% @categories.includes(:bills).each do |category| %>
-        <div class="list-item flex">
-          <%= image_tag(url_for(category.icon), class: "cat-icon") %>
-          <div class="list-item-info flex">
-            <%= link_to category.name, category, class: "list-item-name" %>
-            <span>$<%= category.bills.map { |b| b.amount }.sum %></span>
-          </div>
+    <% @categories.includes(:bills).each do |category| %>
+      <div class="list-item flex">
+        <%= image_tag(url_for(category.icon), class: "cat-icon") %>
+        <div class="list-item-info flex">
+          <%= link_to category.name, category, class: "list-item-name" %>
+          <span>$<%= category.bills.map { |b| b.amount }.sum %></span>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
+  </div>
 <%= button_to "NEW CATEGORY", new_cat_path, method: :get, class: "bottom-action-button", form_class: "bottom-action flex" %>
 </div>

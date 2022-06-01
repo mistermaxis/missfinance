@@ -2,9 +2,9 @@
   <h2>Add a new Category</h2>
 <%= form_with(model: @cat) do |f| %>
   <%= f.label "Name" %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, autofocus: true,  placeholder: 'Category Name', required: true %>
   <%= f.label "Icon" %>
-  <%= f.file_field :icon %>
+  <%= f.file_field :icon, required: true %>
   <%= f.submit 'Add a new category' %>
 <% end %>
 </div>
