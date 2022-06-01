@@ -30,6 +30,10 @@
    color: lightgray;
  }
 
+ a {
+   text-decoration: none;
+ }
+
 .flex {
   display: flex;
 }
@@ -51,19 +55,17 @@
   background-color: #3778c2;
   color: lightgray;
   display: grid;
-  grid-template-areas: '. . . center center right';
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   justify-items: center;
 }
 
 .nav-header {
-  grid-area: center;
   text-align: center;
   font-weight: bold;
 }
 
 .logout-button {
-  grid-area: right;
   background-color: #3778c2;
   cursor: pointer;
 }
@@ -114,8 +116,41 @@
   color: white;
   border: 1px solid white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cat-icon {
   width: 3rem;
+}
+
+/*  Notices  */
+.text-center {
+  text-align: center;
+}
+
+.notice-sign-success {
+  font-size: 8rem;
+  background-color: #5fb523;
+  color: white;
+  border-radius: 100%;
+  padding: 0 1.5rem;
+}
+
+.notice-sign-error-container {
+  justify-content: center;
+}
+
+.notice-sign-error-symbol {
+  background-color: #b5235f;
+  color: white;
+  font-size: 8rem;
+  border-radius: 100%;
+  padding: 0 1.5rem;
+}
+
+.notice-message {
+  text-align: center;
+  color:#aaa
 }
