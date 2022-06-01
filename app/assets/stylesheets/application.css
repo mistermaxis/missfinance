@@ -65,8 +65,9 @@ a {
   font-weight: bold;
 }
 
-.logout-button {
-  background-color: #3778c2;
+.logout-button,
+.login-button {
+  background: none;
   cursor: pointer;
 }
 
@@ -186,5 +187,29 @@ a {
 }
 
 .signup-button {
+  color: gray;
+}
+
+/*   LOGIN   */
+.login-button {
+  border: none;
+}
+
+.login-form {
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.login-input {
+  border: none;
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
+.login-navbar {
+  flex-grow: 1;
+}
+
+.shared-links {
   color: gray;
 }
