@@ -1,23 +1,21 @@
 class NoticesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! :except[:email]
 
   def success
-    if flash.empty?
-      redirect_to cats_path
-    end
+    redirect_to cats_path if flash.empty?
     @cat_id = params[:id]
   end
 
   def failure
-    if flash.empty?
-      redirect_to cats_path
-    end
+    redirect_to cats_path if flash.empty?
     @cat_id = params[:id]
   end
 
   def generic_failure
-    if flash.empty?
-      redirect_to cats_path
-    end
+    redirect_to cats_path if flash.empty?
+  end
+
+  def email
+    
   end
 end
