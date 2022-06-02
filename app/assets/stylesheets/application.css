@@ -51,7 +51,7 @@ a {
 }
 
 .navbar {
-  flex-grow: 2;
+  height: 12%;
   background-color: #3778c2;
   color: lightgray;
   display: grid;
@@ -63,6 +63,10 @@ a {
 .nav-header {
   text-align: center;
   font-weight: bold;
+}
+
+.back-button {
+  font-size: 1.5rem;
 }
 
 .logout-button,
@@ -78,6 +82,7 @@ a {
   align-items: center;
   background-color: #eee;
   padding: 0.5rem;
+  overflow-y: scroll;
 }
 
 .list-item {
@@ -216,7 +221,7 @@ a {
 
 /*  TRANSATIONS   */
 .amount {
-  padding: 0;
+  padding: 0.25rem 0;
 }
 
 .list-item-transaction {

@@ -1,15 +1,15 @@
 <div class="view-container flex">
   <nav class="navbar">
-    <div></div>
-    <span class="nav-header">CATEGORIES</span>
+    <a class="back-button white-text" href=<%= url_for(cats_path) %>>&larr;</a>
+    <span class="nav-header">TRANSACTIONS</span>
     <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
   </nav>
-  <div class="content-list flex">
-    <div class="list-item flex">
-      <div class="list-item-info flex amount">
-        <span>Total amount for this category: </span><span>$<%= @total_amount || 0.0 %></span>
-      </div>
+  <div class="list-item flex">
+    <div class="list-item-info flex amount">
+      <span>Total amount for this category: </span><span>$<%= @total_amount || 0.0 %></span>
     </div>
+  </div>
+  <div class="content-list flex">
     <% if @category.bills.present? %>
       <% @category.bills.order("created_at DESC").each do |bill| %>
     <div class="list-item flex">
