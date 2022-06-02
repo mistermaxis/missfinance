@@ -1,5 +1,5 @@
 class NoticesController < ApplicationController
-  before_action :authenticate_user!,  except:[:email]
+  before_action :authenticate_user!, except: [:email]
 
   def success
     redirect_to cats_path if flash.empty?
@@ -15,7 +15,5 @@ class NoticesController < ApplicationController
     redirect_to cats_path if flash.empty?
   end
 
-  def email
-    
-  end
+  def email; end
 end
