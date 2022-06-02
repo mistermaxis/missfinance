@@ -107,6 +107,12 @@ a {
   text-decoration: none;
 }
 
+.new-item-text {
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
 .bottom-action {
   padding: 1rem;
   height: 7.5%;
@@ -214,6 +220,15 @@ a {
 
 .shared-links {
   color: gray;
+}
+
+.inline-notice {
+  padding: 0;
+  font-size: 0.9rem;
+  color: #b5235f;
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
 }
 
 /*  TRANSACTIONS   */
