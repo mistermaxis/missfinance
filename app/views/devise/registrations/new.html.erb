@@ -1,10 +1,8 @@
 <div class="view-container flex">
   <nav class="navbar">
-    <div></div>
+    <a class="back-button white-text" href=<%= url_for(:root) %>>&larr;</a>
     <span class="nav-header">SIGN UP</span>
-    <div>
-      <input class="login-button white-text" type="submit" name="commit" value="SIGN UP" data-disable-with="SIGN UP" form="new_user">
-    </div>
+    <input class="login-button white-text" type="submit" name="commit" value="SIGN UP" data-disable-with="SIGN UP" form="new_user">
   </nav>
   <div class="content-list flex">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "list-item flex form" }) do |f| %>
