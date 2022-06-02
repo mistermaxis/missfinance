@@ -1,16 +1,25 @@
-<div>
-  <p>Category:</p>
-  <div class="category-header">
-    <%= image_tag(url_for(@category.icon), class: "cat-icon") %>
-    <span><%= @category.name %></span>
-    <p>Total amount for this category: <%= @total_amount %></p>
+<div class="view-container flex">
+  <nav class="navbar">
+    <a class="back-button white-text" href=<%= url_for(cats_path) %>>&larr;</a>
+    <span class="nav-header">TRANSACTIONS</span>
+    <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
+  </nav>
+  <div class="list-item flex">
+    <div class="list-item-info flex amount">
+      <span>Total amount for this category: </span><span>$<%= @total_amount || 0.0 %></span>
+    </div>
   </div>
-  <div>
+  <div class="content-list flex">
     <% if @category.bills.present? %>
       <% @category.bills.order("created_at DESC").each do |bill| %>
-        <p><%= bill.name %>: $<%= bill.amount %></p>
+    <div class="list-item flex">
+      <div class="list-item-transaction flex">
+        <span class="list-item-name"><%= bill.name %></span>
+        <span>$<%= bill.amount %></span>
+      </div>
+    </div>
       <% end %>
     <% end %>
   </div>
-  <%= button_to 'New Transaction', new_bill_path, method: :get %>
+  <%= button_to "NEW TRANSACTION", new_bill_path, method: :get, class: "bottom-action-button flex white-text", form_class: "bottom-action green-button flex" %>
 </div>
