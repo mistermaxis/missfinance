@@ -6,19 +6,19 @@ class CatsController < ApplicationController
 
     if @cats.present?
       @categories = @cats
-      # @general_total = Bill.where(author: current_user).map(&:amount).sum
       @general_total = @categories.map { |c| c.bills.map(&:amount).sum }.sum
     end
   end
 
   def show
-    @category = Cat.find_by(id: params[:id])
+    @category = Cat.includes(:bills).find_by(id: params[:id])
 
     if @category.nil?
       redirect_to generic_failure_path, notice: "Category with id: #{params[:id]} does not exist"
     elsif @category.author != current_user
       redirect_to generic_failure_path, notice: "Category with id: #{params[:id]} does not belong to this user"
     else
+      @bills = @category.bills.sort { |a, b| b.created_at <=> a.created_at }
       @total_amount = @category.bills.map(&:amount).sum
     end
   end

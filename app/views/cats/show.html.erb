@@ -10,8 +10,8 @@
     </div>
   </div>
   <div class="content-list flex">
-    <% if @category.bills.present? %>
-      <% @category.bills.order("created_at DESC").each do |bill| %>
+    <% if @bills.present? %>
+      <% @bills.each do |bill| %>
     <div class="list-item flex">
       <div class="list-item-transaction flex">
         <span class="list-item-name"><%= bill.name %></span>

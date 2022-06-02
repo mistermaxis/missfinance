@@ -7,7 +7,7 @@
   <div class="content-list flex">
     <%= form_with(model: @bill, id: "new_transaction", class: "list-item flex form") do |f| %>
       <%= f.fields_for(@cat_bill) do |cat| %>
-        <%= cat.collection_select(:cat_id, @categories, :id, :name, { :prompt => "Select Payment Category" }, { class: "form-input" }) %>
+        <%= cat.collection_select(:cat_id, @categories, :id, :name, { :prompt => "Select Payment Category" }, { class: "form-input", required: true }) %>
       <% end %>
       <%= f.text_field :name, autofocus: true, placeholder: 'Payment Name', required: true, class: "form-input" %>
       <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0, step: :any, required: true, class: "form-input" %>
