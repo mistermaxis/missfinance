@@ -1,6 +1,6 @@
 <div class="view-container flex">
   <nav class="navbar login-navbar">
-    <div></div>
+    <a class="back-button white-text" href=<%= url_for(:root) %>>&larr;</a>
     <span class="nav-header">PASSWORD RESET</span>
     <div>
       <input class="login-button white-text" type="submit" name="commit" value="SEND" data-disable-with="SEND"
@@ -12,7 +12,6 @@
       <%= render "devise/shared/error_messages" , resource: resource %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" , required: true, placeholder: "Email", class: "form-input" %>
     <% end %>
-
     <%= render "devise/shared/links" %>
   </div>
 </div>
