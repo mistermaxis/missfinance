@@ -177,6 +177,7 @@ a {
 
 .splash-screen-bottom-action {
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .splash-screen-button > a {
