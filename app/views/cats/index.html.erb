@@ -11,12 +11,12 @@
   </div>
   <div class="content-list flex">
     <% if @categories.present? %>
-      <% @categories.includes(:bills).each do |category| %>
+      <% @categories.each do |category| %>
         <div class="list-item flex">
           <%= image_tag(url_for(category.icon), class: "cat-icon") %>
           <div class="list-item-info flex">
             <%= link_to category.name, category, class: "list-item-name" %>
-            <span>$<%= category.bills.map { |b| b.amount }.sum %></span>
+            <span>$<%= category.bills.map(&:amount).sum %></span>
           </div>
         </div>
       <% end %>

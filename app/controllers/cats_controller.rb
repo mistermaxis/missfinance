@@ -2,11 +2,12 @@ class CatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cats = Cat.where(author: current_user)
+    @cats = Cat.includes(:bills).where(author: current_user)
 
     if @cats.present?
       @categories = @cats
-      @general_total = Bill.where(author: current_user).map(&:amount).sum
+      # @general_total = Bill.where(author: current_user).map(&:amount).sum
+      @general_total = @categories.map { |c| c.bills.map(&:amount).sum }.sum
     end
   end
 
