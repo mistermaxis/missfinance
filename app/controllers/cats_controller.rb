@@ -4,9 +4,7 @@ class CatsController < ApplicationController
   def index
     @categories = Cat.includes(:bills).where(author: current_user)
 
-    if @categories.present?
-      @general_total = @categories.map { |c| c.bills.map(&:amount).sum }.sum
-    end
+    @general_total = @categories.map { |c| c.bills.map(&:amount).sum }.sum if @categories.present?
   end
 
   def show
