@@ -211,10 +211,6 @@ a {
   padding: 0.5rem;
 }
 
-.login-navbar {
-  flex-grow: 1;
-}
-
 .shared-links {
   color: gray;
 }
