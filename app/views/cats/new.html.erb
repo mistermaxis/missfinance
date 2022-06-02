@@ -1,10 +1,8 @@
 <div class="view-container flex">
   <nav class="navbar">
-    <div></div>
+    <a class="back-button white-text" href=<%= url_for(cats_path) %>>&larr;</a>
     <span class="nav-header">NEW CATEGORY</span>
-    <div>
-      <input class="login-button white-text" type="submit" name="commit" value="ADD" data-disable-with="ADD" form="new_category">
-    </div>
+    <input class="login-button white-text" type="submit" name="commit" value="ADD" data-disable-with="ADD" form="new_category">
   </nav>
   <div class="content-list flex">
     <%= form_with(model: @cat, id: 'new_category', class: "list-item flex form") do |f| %>
