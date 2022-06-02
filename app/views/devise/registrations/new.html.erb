@@ -6,11 +6,11 @@
   </nav>
   <div class="content-list flex">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "list-item flex form" }) do |f| %>
-    <%= render "devise/shared/error_messages" , resource: resource %>
     <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true, placeholder: "Name", class: "form-input" %>
     <%= f.email_field :email, autocomplete: "email", required: true, placeholder: "Email", class: "form-input" %>
     <%= f.password_field :password, autocomplete: "new-password", required: true, placeholder: "Password: #{@minimum_password_length} characters minimum", class: "form-input" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, placeholder: "Repeat Password", class: "form-input" %>
+    <%= render "devise/shared/error_messages" , resource: resource %>
     <% end %>
     <%= render "devise/shared/links" %>
   </div>
