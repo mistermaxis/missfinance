@@ -12,13 +12,19 @@
   <div class="content-list flex">
     <% if @bills.present? %>
       <% @bills.each do |bill| %>
-    <div class="list-item flex">
-      <div class="list-item-transaction flex">
-        <span class="list-item-name"><%= bill.name %></span>
-        <span>$<%= bill.amount %></span>
-      </div>
-    </div>
+        <div class="list-item flex">
+          <div class="list-item-transaction flex">
+            <span class="list-item-name"><%= bill.name %></span>
+            <span>$<%= bill.amount %></span>
+          </div>
+        </div>
       <% end %>
+    <% else %>
+      <div class="list-item flex">
+          <div class="new-item-text">
+            <span>Add a Transaction</span>
+          </div>
+        </div>
     <% end %>
   </div>
   <%= button_to "NEW TRANSACTION", new_bill_path, method: :get, class: "bottom-action-button flex white-text", form_class: "bottom-action green-button flex" %>

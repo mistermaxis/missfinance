@@ -20,6 +20,12 @@
           </div>
         </div>
       <% end %>
+    <% else %>
+      <div class="list-item flex">
+          <div class="new-item-text">
+            <span>Add a Category</span>
+          </div>
+        </div>
     <% end %>
   </div>
 <%= button_to "NEW CATEGORY", new_cat_path, method: :get, class: "bottom-action-button flex white-text", form_class: "bottom-action green-button  flex" %>
