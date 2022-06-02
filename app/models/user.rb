@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-  
-         has_many :bills, inverse_of: :author, foreign_key: 'author_id'
+
+  has_many :bills, inverse_of: :author, foreign_key: 'author_id'
   has_many :cats, inverse_of: :author, foreign_key: 'author_id'
 
   validates :name, presence: true
