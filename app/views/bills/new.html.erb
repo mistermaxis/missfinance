@@ -1,12 +1,17 @@
-<h1>Add a New Payment</h1>
-  <%= form_with(model: @bill) do |f| %>
-    <%= f.label :name, 'Payment Name' %>
-    <%= f.text_field :name, autofocus: true, placeholder: 'Payment Name' %>
-    <%= f.label :amount, 'Amount' %>
-    <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0, step: :any %>
-    <%= f.fields_for(@cat_bill) do |cat| %>
-      <%= cat.label 'Categories' %>
-      <%= cat.collection_select(:cat_id, @categories, :id, :name, {}, { :multiple => true }) %>
+<div class="view-container flex">
+  <nav class="navbar">
+    <a class="back-button white-text" href=<%= url_for(:back) %>>&larr;</a>
+    <span class="nav-header">NEW TRANSACTION</span>
+    <input class="login-button white-text" type="submit" name="commit" value="ADD" data-disable-with="ADD" form="new_transaction">
+  </nav>
+  <div class="content-list flex">
+    <%= form_with(model: @bill, id: "new_transaction", class: "list-item flex form") do |f| %>
+      <%= f.fields_for(@cat_bill) do |cat| %>
+        <%= cat.collection_select(:cat_id, @categories, :id, :name, { :prompt => "Select Payment Category" }, { class: "form-input", required: true }) %>
+      <% end %>
+      <%= f.text_field :name, autofocus: true, placeholder: 'Payment Name', required: true, class: "form-input" %>
+      <%= f.number_field :amount, placeholder: 'Payment Amount', min: 0, step: :any, required: true, class: "form-input" %>
     <% end %>
-    <%= f.submit 'Add Payment' %>
-  <% end %>
+  </div>
+  <%= button_to "NEW CATEGORY", new_cat_path, method: :get, class: "bottom-action-button flex white-text", form_class: "bottom-action green-button  flex" %>
+</div>

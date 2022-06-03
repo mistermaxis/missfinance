@@ -1,8 +1,32 @@
-<h1>Categories</h1>
-<% if !@categories.empty? %>
-  <% @categories.includes(:bills).each do |category| %>
-    <div><%= image_tag(url_for(category.icon), class: "cat-icon") %><%= link_to category.name, category %>
-    <span><%= category.bills.map { |b| b.amount }.sum %></span></div>
-  <% end %>
-  <%= button_to "New Category", new_cat_path, method: :get %>
-<% end %>
+<div class="view-container flex">
+  <nav class="navbar">
+    <div class="filler"></div>
+    <span class="nav-header">CATEGORIES</span>
+    <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
+  </nav>
+  <div class="list-item flex">
+    <div class="list-item-info flex amount">
+      <span>Total amount for this user: </span><span>$<%= @general_total || 0.0 %></span>
+    </div>
+  </div>
+  <div class="content-list flex">
+    <% if @categories.present? %>
+      <% @categories.each do |category| %>
+        <div class="list-item flex">
+          <%= image_tag(url_for(category.icon), class: "cat-icon") %>
+          <div class="list-item-info flex">
+            <%= link_to category.name, category, class: "list-item-name" %>
+            <span>$<%= category.bills.map(&:amount).sum %></span>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="list-item flex">
+          <div class="new-item-text">
+            <span>Add a Category</span>
+          </div>
+        </div>
+    <% end %>
+  </div>
+<%= button_to "NEW CATEGORY", new_cat_path, method: :get, class: "bottom-action-button flex white-text", form_class: "bottom-action green-button  flex" %>
+</div>

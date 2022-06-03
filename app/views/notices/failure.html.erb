@@ -1,0 +1,21 @@
+<div class="view-container flex">
+  <nav class="navbar">
+    <div></div>
+    <div></div>
+    <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
+  </nav>
+  <% flash.each do |type, msg| %>
+    <div class="content-list">
+      <div class="list-item text-center">
+        <div class="notice-sign-error-container flex">
+          <div class="notice-sign-error-symbol">&#10799;</div>
+        </div>
+        <h3 class="nav-header">ERROR</h3>
+        <p class="notice-message"><%= msg %></p>
+      </div>
+    </div>
+  <% end %>
+  <div class="bottom-action green-button flex">
+    <%= link_to 'OK', cat_path(@cat_id), class: "bottom-action-button flex white-text"%>
+  </div>
+</div>

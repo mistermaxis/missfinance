@@ -9,17 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <% flash.each do |type, msg| %>
-      <div class="alert alert-info">
-        <%= msg %>
-        <%= button_to 'OK', redirect_to: :back %>
-      </div>
-    <% end %>
-    <% if user_signed_in? %>
-      <div><%= button_to 'Log Out', destroy_user_session_path, method: :delete %></div>
-    <% end %>
-    <%= yield %>
+    <main class="main-container flex"><%= yield %></main>
   </body>
 </html>

@@ -1,4 +1,12 @@
-<h1>MissFinance</h1>
-<p><%= link_to 'Sign Up', new_user_registration_path %></p>
-<p><%= link_to 'Log In', new_user_session_path %></p>
+<div class="view-container flex">
+  <div class="splash-screen-title flex"><span>MissFinance</span></div>
+  <div class="bottom-action flex splash-screen-bottom-action">
+    <div class="flex splash-screen-button blue-button">
+      <%= link_to 'Log In', new_user_session_path, class: "white-text" %>
+    </div>
+    <div class="flex splash-screen-button">
+      <%= link_to 'Sign Up', new_user_registration_path, class: "signup-button" %>
+    </div>
+  </div>
+</div>
 
