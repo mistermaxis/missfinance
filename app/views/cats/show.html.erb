@@ -1,7 +1,7 @@
 <div class="view-container flex">
   <nav class="navbar">
     <a class="back-button white-text" href=<%= url_for(cats_path) %>>&larr;</a>
-    <span class="nav-header">TRANSACTIONS</span>
+    <span class="nav-header"><%= @category.name.upcase %></span>
     <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, form_class: 'logout-button' %>
   </nav>
   <div class="list-item flex">
