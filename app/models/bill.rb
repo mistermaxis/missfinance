@@ -6,4 +6,5 @@ class Bill < ApplicationRecord
   validates :name, presence: true
   validates :amount, presence: true
   validates :amount, numericality: true
+  validates :amount, comparison: { greater_than: 0 }
 end
