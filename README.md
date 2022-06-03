@@ -2,6 +2,13 @@
 
 > An application built with Ruby on Rails which lets you keep track of your expenses.
 
+<div style="text-align: center; padding: 2rem 0;">
+
+  ![](./app/assets/images/screenshots/splashscreen.png)
+
+</div>
+
+
 ## Video Description By Developer
 
 [Demo Video](https://www.loom.com/share/0812b02d73744cb29b3b1f4e754a7614)
@@ -49,7 +56,7 @@ In your browser, go to
 - To run all the tests: rspec
 
 
-## Authors
+## Author
 
 👤 **Maximiliano Diaz**
 
