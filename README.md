@@ -2,16 +2,15 @@
 
 > An application built with Ruby on Rails which lets you keep track of your expenses.
 
-<div style="text-align: center; padding: 2rem 0;">
+<div style="display: flex; justify-content: center; padding: 2rem 0;">
 
   ![](./app/assets/images/screenshots/splashscreen.png)
 
 </div>
 
+## Demo
 
-## Video Description By Developer
-
-[Demo Video](https://www.loom.com/share/0812b02d73744cb29b3b1f4e754a7614)
+[Link to demo video](https://www.loom.com/share/e90a79cd310140eebf874f97e8300f76)
 
 ## Live Version
 
