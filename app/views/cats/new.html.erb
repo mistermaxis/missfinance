@@ -1,0 +1,13 @@
+<div class="view-container flex">
+  <nav class="navbar">
+    <a class="back-button white-text" href=<%= url_for(cats_path) %>>&larr;</a>
+    <span class="nav-header">NEW CATEGORY</span>
+    <input class="login-button white-text" type="submit" name="commit" value="ADD" data-disable-with="ADD" form="new_category">
+  </nav>
+  <div class="content-list flex">
+    <%= form_with(model: @cat, id: 'new_category', class: "list-item flex form") do |f| %>
+    <%= f.text_field :name, autofocus: true,  placeholder: 'Category Name', required: true, class: "form-input" %>
+    <%= f.file_field :icon, required: true, class: "form-input" %>
+    <% end %>
+  </div>
+</div>
