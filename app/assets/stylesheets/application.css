@@ -151,6 +151,14 @@ a {
   padding: 0 1.5rem;
 }
 
+.notice-sign-email {
+  font-size: 8rem;
+  background-color: #3778c2;
+  color: white;
+  border-radius: 100%;
+  padding: 0 1.5rem;
+}
+
 .notice-sign-error-container {
   justify-content: center;
 }
