@@ -12,11 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(user)
-    if user.is_a?(User)
-      session_path
-    else
-      super
-    end
+    email_path
   end  
 
   def update_allowed_parameters
